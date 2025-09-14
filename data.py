@@ -11,17 +11,17 @@ client.enableApiControl(True)
 car_controls = airsim.CarControls()
 
 # Ορισμός φακέλου για το dataset
-scenario = "scenario_drive"
+scenario = "scenario_drive3"
 output_folder = f"dataset/{scenario}"
 os.makedirs(output_folder, exist_ok=True)
 
 # Ρυθμίσεις οδήγησης
-car_controls.throttle = 0.3   # ταχύτητα (0.0 - 1.0)
+car_controls.throttle = 1.0   # ταχύτητα (0.0 - 1.0)
 car_controls.steering = 0.0   # 0 = ευθεία, αρνητικό = αριστερά, θετικό = δεξιά
 client.setCarControls(car_controls)
 
 # Συλλογή εικόνων
-n_images = 300   # πόσες εικόνες θέλεις
+n_images = 50   # πόσες εικόνες θέλεις
 for i in range(n_images):
     responses = client.simGetImages([
         airsim.ImageRequest("0", airsim.ImageType.Scene, False, False)
